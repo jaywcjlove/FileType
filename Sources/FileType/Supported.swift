@@ -1679,7 +1679,7 @@ public extension MimeType {
            return bytes[0...2] == [0x49, 0x49, 0xBC]
         }),
         .init(mime: "image/webp", type: .webp, bytesCount: 4, matches: { bytes, _ in
-           return bytes[8...11] == [0x57, 0x45, 0x42, 0x50]
+            return bytes.count > 7 && bytes[8...11] == [0x57, 0x45, 0x42, 0x50]
         }),
         .init(mime: "image/x-adobe-dng", type: .dng, bytesCount: 4, matches: { bytes, _ in
             // TODO: Implement magic number check for image/x-adobe-dng

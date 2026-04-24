@@ -129,3 +129,8 @@ import Foundation
     }
 }
 
+@Test func testBlankTxt() async throws {
+    let data = Data([0x33, 0x2E, 0x31, 0x30, 0x2E, 0x33, 0x0A]) // emty txt file bytes
+    #expect(FileType.mimeType(data: data) == nil)
+}
+
